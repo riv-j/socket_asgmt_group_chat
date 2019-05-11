@@ -1,0 +1,29 @@
+{
+  "name": "group_chat",
+  "version": "1.0.0",
+  "description": "Group Chat (Socket ASGMT)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riv-j/socket_asgmt_group_chat.git"
+  },
+  "keywords": [
+    "socket",
+    "chat"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/riv-j/socket_asgmt_group_chat/issues"
+  },
+  "homepage": "https://github.com/riv-j/socket_asgmt_group_chat#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {}
+}

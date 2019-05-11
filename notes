@@ -1,0 +1,5 @@
+1.) Have the Node JS server render views/index.ejs that has html content for the client whenever the client requests '/'
+2.) In the client codes, have a javascript code that asks the user for their name. Store the user input in a variable called name.
+3.) Have the client EMIT to the server an event called 'user_name' and pass the name to the server.
+4.) Have the server LISTEN for an event called 'user_name'. When this event gets triggered, have the BROADCAST an event called 'new_user' to the client with the name of the new user attached to the event.
+5.) Have the client LSITEN for an event called 'new_user' and when this gets triggered, have jQuery render a new box with the new user's name.
