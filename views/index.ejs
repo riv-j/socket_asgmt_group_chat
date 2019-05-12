@@ -3,19 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <title>Group Chat</title>
+  <link rel="stylesheet" href="/main.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script type="text/javascript" src="/socket.io/socket.io.js"></script>
   <script type='text/javascript'>
     $(document).ready(() => {
+      // intialize socket connection  
+      var socket = io(); 
 
-      $('form').submit(() => {
+      // when form is submitted
+      $('form').submit(function(e){
+        // prevent the page from reloading
+        e.preventDefault()
         var name = $('#name').val();
 
-        socket.emit('user_name', name);
+        // send name to the server
+        socket.emit('user_name', {name: name});
+  
+        return false;
       });
 
-      $socket.on('new_user', function(name){
+      // everyone is listening for a new user's name
+      socket.on('new_user', function(data){ 
+        // when the name is recieved
+        // create a new box with the users name
+        $('.right').append(`<div id=${data.id} class='box'><p>${data.name}</p></div`);
+      });
 
+      socket.on('user_disconnect', function(data){
+        // use id sent from the user_disconnected emit
+        // to remove the box
+        $(`#${data}`).remove();
       });
 
     });
@@ -23,12 +41,15 @@
 </head>
 <body>
   <main>
-    <form action="">
-      <input type="text" name="name" id="name">
-      <input type="submit" value="Submit">
-    </form>
+    <div class="left">
+      <h2>group chat</h2>
+      <form action="">
+        <input type="text" name="name" id="name" placeholder="Your full name">
+        <input type="submit" value="Submit">
+      </form>
+    </div>
     <div class='right'>
-      
+
     </div>
   </main>
 </body>

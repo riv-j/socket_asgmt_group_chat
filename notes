@@ -1,5 +1,25 @@
-1.) Have the Node JS server render views/index.ejs that has html content for the client whenever the client requests '/'
-2.) In the client codes, have a javascript code that asks the user for their name. Store the user input in a variable called name.
-3.) Have the client EMIT to the server an event called 'user_name' and pass the name to the server.
-4.) Have the server LISTEN for an event called 'user_name'. When this event gets triggered, have the BROADCAST an event called 'new_user' to the client with the name of the new user attached to the event.
+1.) Have the Node JS server render views/index.ejs that has html content for the client whenever the client requests '/' 
+**COMPLETED**
+
+
+2.) In the client codes, have a javascript code that asks the user for their name. Store the user input in a variable called name. 
+**COMPLETED**
+
+
+3.) Have the client EMIT to the server an event called 'user_name' and pass the name to the server. 
+**COMPLETED**
+
+
+4.) Have the server LISTEN for an event called 'user_name'. When this event gets triggered, have the BROADCAST an event called 'new_user' to the client with the name of the new user attached to the event. 
+**COMPLETED**
+    -For step 4, when the server gets the event 'user_name', store a socketID of the user and pass this socketID with the event "new_user". Then have the client render this html box with the id of the socketID of this user.
+    **COMPLETED**
+
 5.) Have the client LSITEN for an event called 'new_user' and when this gets triggered, have jQuery render a new box with the new user's name.
+**COMPLETED
+
+6.)Wait... But this does not detect when a user disconnects from the socketIO connection. To do this, we need to have the server LISTEN for an event called 'disconnect' and when this event gets triggered, broadcast an event called 'disconnect_user' to all clients.
+**COMPLETE**
+
+7.)We need to have the client LISTEN for an event called 'disconnect_user' and remove any html box associated with this user.
+**COMPLETED**
